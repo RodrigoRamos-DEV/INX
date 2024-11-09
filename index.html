@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <img class="dry" src="DRY.png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Vendas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh; /* Altura total da tela */
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            flex-direction: column; /* Alinha o header e o container em coluna */
+        }
+        header {
+            text-align: center; /* Centraliza o texto do header */
+            margin-bottom: 20px; /* Espaçamento abaixo do header */
+        }
+        .container {
+            text-align: center; /* Centraliza o texto dentro da div */
+            padding: 20px; /* Espaçamento interno */
+            border-radius: 8px; /* Bordas arredondadas */
+            box-shadow: 0 0 10px rgba(182, 170, 3, 0.473); /* Sombra sutil */
+            display: flex; /* Usando flexbox para centralizar os inputs */
+            flex-direction: column; /* Alinha os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+            width: 100%; /* Faz os inputs ocuparem toda a largura do container */
+            max-width: 300px; /* Define uma largura máxima para os inputs */
+        }
+        input[type="button"] {
+            margin-top: 20px;
+            cursor: pointer; /* Adiciona um cursor de ponteiro ao botão */
+        }
+        h3 {
+            color: white; /* Define a cor do texto como branca */
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+      
+    </header>
+    <div class="container">
+        <main class="calc">
+            <label for="c4-quantidade">C4 (R$1.500,00):</label>
+            <input type="number" id="c4-quantidade" value="0" min="0">
+
+            <label for="rastreador-quantidade">Rastreador (R$20.000,00):</label>
+            <input type="number" id="rastreador-quantidade" value="0" min="0">
+
+            <label for="bloqueador-quantidade">Bloqueador de Sinal (R$10.000,00):</label>
+            <input type="number" id="bloqueador-quantidade" value="0" min="0">
+
+            <label for="alcool-gel-quantidade">Álcool em Gel (R$1.000,00):</label>
+            <input type="number" id="alcool-gel-quantidade" value="0" min="0">
+
+            <input type="button" value="Calcular Total" onclick="calcularTotal()">
+            <input type="button" value="Resetar" onclick="resetarCalculadora()">
+
+            <h3 id="resultado"></h3>
+        </main>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            const precoC4 = 1500;
+            const precoRastreador = 20000;
+            const precoBloqueador = 10000;
+            const precoAlcoolGel = 1000;
+
+            const quantidadeC4 = document.getElementById('c4-quantidade').value;
+            const quantidadeRastreador = document.getElementById('rastreador-quantidade').value;
+            const quantidadeBloqueador = document.getElementById('bloqueador-quantidade').value;
+            const quantidadeAlcoolGel = document.getElementById('alcool-gel-quantidade').value;
+
+            const totalC4 = precoC4 * quantidadeC4;
+            const totalRastreador = precoRastreador * quantidadeRastreador;
+            const totalBloqueador = precoBloqueador * quantidadeBloqueador;
+            const totalAlcoolGel = precoAlcoolGel * quantidadeAlcoolGel;
+
+            const total = totalC4 + totalRastreador + totalBloqueador + totalAlcoolGel;
+
+            // Exibe o resultado
+            document.getElementById('resultado').innerText = `Total : R$ ${total.toFixed(2)}`;
+        }
+
+        function resetarCalculadora() {
+            document.getElementById('c4-quantidade').value = 0;
+            document.getElementById('rastreador-quantidade').value = 0;
+            document.getElementById('bloqueador-quantidade').value = 0;
+            document.getElementById('alcool-gel-quantidade').value = 0;
+            document.getElementById('resultado').innerText = ''; // Limpa o resultado
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+body{
+    background-image: url(Back.png);
+    color: white;
+}
+
+.dry{
+    margin-top: 1px;
+    width: 200px;
+    
+}
+
+
+.container{
+    
+    background-color: rgba(17, 17, 17, 0.76);
+    width: 20%;
+    height: 400px;
+    border: 50px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+
