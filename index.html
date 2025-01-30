@@ -63,6 +63,15 @@
             <label for="alcool-gel-quantidade">Álcool em Gel (R$1.500,00):</label>
             <input type="number" id="alcool-gel-quantidade" value="0" min="0">
 
+            <label for="alcool-gel-quantidade">Alicate Tesoura - Freio (R$3.000,00):</label>
+            <input type="number" id="alicate-tesoura-quantidade" value="0" min="0">
+
+            <label for="alcool-gel-quantidade">Chave de Roda (R$4.000,00):</label>
+            <input type="number" id="chave-de-roda-quantidade" value="0" min="0">
+
+            <label for="alcool-gel-quantidade">Kit Sabotagem de Ignição (R$5.000,00):</label>
+            <input type="number" id="kit-de-ignicao" value="0" min="0">
+
             <input type="button" value="Calcular Total" onclick="calcularTotal()">
             <input type="button" value="Resetar" onclick="resetarCalculadora()">
 
@@ -76,18 +85,29 @@
             const precoRastreador = 20000;
             const precoBloqueador = 10000;
             const precoAlcoolGel = 1500;
+            const precoAlicateTesoura = 3000;
+            const precoChaveRoda = 4000;
+            const precoKitSabotagem = 5000;
 
             const quantidadeC4 = document.getElementById('c4-quantidade').value;
             const quantidadeRastreador = document.getElementById('rastreador-quantidade').value;
             const quantidadeBloqueador = document.getElementById('bloqueador-quantidade').value;
             const quantidadeAlcoolGel = document.getElementById('alcool-gel-quantidade').value;
+            const quantidadeAlicateTesoura = document.getElementById('alicate-tesoura-quantidade').value;
+            const quantidadeChaveRoda = document.getElementById('chave-de-roda-quantidade').value;
+            const quantidadeKitIgnicao = document.getElementById('kit-de-ignicao-quantidade').value;
+
+            
 
             const totalC4 = precoC4 * quantidadeC4;
             const totalRastreador = precoRastreador * quantidadeRastreador;
             const totalBloqueador = precoBloqueador * quantidadeBloqueador;
             const totalAlcoolGel = precoAlcoolGel * quantidadeAlcoolGel;
+            const totalAlicateTesoura = precoAlicateTesoura * quantidadeAlicateTesoura;
+            const totalChaveRoda = precoChaveRoda * quantidadeChaveRoda;
+            const totalKitIgnicao = precoKitSabotagem * quantidadeKitIgnicao;
 
-            const total = totalC4 + totalRastreador + totalBloqueador + totalAlcoolGel;
+            const total = totalC4 + totalRastreador + totalBloqueador + totalAlcoolGel + totalKitIgnicao + totalChaveRoda + totalAlicateTesoura ;
 
             // Exibe o resultado
             document.getElementById('resultado').innerText = `Total : R$ ${total.toFixed(2)}`;
@@ -98,6 +118,9 @@
             document.getElementById('rastreador-quantidade').value = 0;
             document.getElementById('bloqueador-quantidade').value = 0;
             document.getElementById('alcool-gel-quantidade').value = 0;
+            document.getElementById('alicate-tesoura-quantidade').value = 0;
+            document.getElementById('chave-de-roda-quantidade').value = 0;
+            document.getElementById('kit-de-ignicao-quantidade').value = 0;
             document.getElementById('resultado').innerText = ''; // Limpa o resultado
         }
     </script>
