@@ -80,49 +80,48 @@
     </div>
 
     <script>
-        function calcularTotal() {
-            const precoC4 = 1500;
-            const precoRastreador = 20000;
-            const precoBloqueador = 10000;
-            const precoAlcoolGel = 1500;
-            const precoAlicateTesoura = 3000;
-            const precoChaveRoda = 4000;
-            const precoKitSabotagem = 5000;
+    function calcularTotal() {
+        const precoC4 = 1500;
+        const precoRastreador = 20000;
+        const precoBloqueador = 10000;
+        const precoAlcoolGel = 1500;
+        const precoAlicateTesoura = 3000;
+        const precoChaveRoda = 4000;
+        const precoKitSabotagem = 5000;
 
-            const quantidadeC4 = document.getElementById('c4-quantidade').value;
-            const quantidadeRastreador = document.getElementById('rastreador-quantidade').value;
-            const quantidadeBloqueador = document.getElementById('bloqueador-quantidade').value;
-            const quantidadeAlcoolGel = document.getElementById('alcool-gel-quantidade').value;
-            const quantidadeAlicateTesoura = document.getElementById('alicate-tesoura-quantidade').value;
-            const quantidadeChaveRoda = document.getElementById('chave-de-roda-quantidade').value;
-            const quantidadeKitIgnicao = document.getElementById('kit-de-ignicao-quantidade').value;
+        const quantidadeC4 = parseInt(document.getElementById('c4-quantidade').value) || 0;
+        const quantidadeRastreador = parseInt(document.getElementById('rastreador-quantidade').value) || 0;
+        const quantidadeBloqueador = parseInt(document.getElementById('bloqueador-quantidade').value) || 0;
+        const quantidadeAlcoolGel = parseInt(document.getElementById('alcool-gel-quantidade').value) || 0;
+        const quantidadeAlicateTesoura = parseInt(document.getElementById('alicate-tesoura-quantidade').value) || 0;
+        const quantidadeChaveRoda = parseInt(document.getElementById('chave-de-roda-quantidade').value) || 0;
+        const quantidadeKitIgnicao = parseInt(document.getElementById('kit-de-ignicao').value) || 0; // Correção do ID
 
-            
+        const totalC4 = precoC4 * quantidadeC4;
+        const totalRastreador = precoRastreador * quantidadeRastreador;
+        const totalBloqueador = precoBloqueador * quantidadeBloqueador;
+        const totalAlcoolGel = precoAlcoolGel * quantidadeAlcoolGel;
+        const totalAlicateTesoura = precoAlicateTesoura * quantidadeAlicateTesoura;
+        const totalChaveRoda = precoChaveRoda * quantidadeChaveRoda;
+        const totalKitIgnicao = precoKitSabotagem * quantidadeKitIgnicao;
 
-            const totalC4 = precoC4 * quantidadeC4;
-            const totalRastreador = precoRastreador * quantidadeRastreador;
-            const totalBloqueador = precoBloqueador * quantidadeBloqueador;
-            const totalAlcoolGel = precoAlcoolGel * quantidadeAlcoolGel;
-            const totalAlicateTesoura = precoAlicateTesoura * quantidadeAlicateTesoura;
-            const totalChaveRoda = precoChaveRoda * quantidadeChaveRoda;
-            const totalKitIgnicao = precoKitSabotagem * quantidadeKitIgnicao;
+        const total = totalC4 + totalRastreador + totalBloqueador + totalAlcoolGel + totalAlicateTesoura + totalChaveRoda + totalKitIgnicao;
 
-            const total = totalC4 + totalRastreador + totalBloqueador + totalAlcoolGel + totalKitIgnicao + totalChaveRoda + totalAlicateTesoura ;
+        // Exibe o resultado
+        document.getElementById('resultado').innerText = `Total: R$ ${total.toFixed(2)}`;
+    }
 
-            // Exibe o resultado
-            document.getElementById('resultado').innerText = `Total : R$ ${total.toFixed(2)}`;
-        }
+    function resetarCalculadora() {
+        document.getElementById('c4-quantidade').value = 0;
+        document.getElementById('rastreador-quantidade').value = 0;
+        document.getElementById('bloqueador-quantidade').value = 0;
+        document.getElementById('alcool-gel-quantidade').value = 0;
+        document.getElementById('alicate-tesoura-quantidade').value = 0;
+        document.getElementById('chave-de-roda-quantidade').value = 0;
+        document.getElementById('kit-de-ignicao').value = 0; // Correção do ID
+        document.getElementById('resultado').innerText = ''; // Limpa o resultado
+    }
+</script>
 
-        function resetarCalculadora() {
-            document.getElementById('c4-quantidade').value = 0;
-            document.getElementById('rastreador-quantidade').value = 0;
-            document.getElementById('bloqueador-quantidade').value = 0;
-            document.getElementById('alcool-gel-quantidade').value = 0;
-            document.getElementById('alicate-tesoura-quantidade').value = 0;
-            document.getElementById('chave-de-roda-quantidade').value = 0;
-            document.getElementById('kit-de-ignicao-quantidade').value = 0;
-            document.getElementById('resultado').innerText = ''; // Limpa o resultado
-        }
-    </script>
 </body>
 </html>
